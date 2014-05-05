@@ -7,12 +7,12 @@ before_script:
   - git config --global user.name "Travis"
 
 script:
-  - git clone --depth 5 --quiet https://${GH_TOKEN}@github.com/Software-Maestro/__site-creator.git creator
+  - git clone --depth 5 --quiet https://${GH_TOKEN}@github.com/Software-Maestro/__static-creator.git creator
 
 after_success:
   - cd creator
   - git commit -m "Renew site contents" --allow-empty
-  - git push https://${GH_TOKEN}@github.com/Software-Maestro/__site-creator.git master --quiet
+  - git push https://${GH_TOKEN}@github.com/Software-Maestro/__static-creator.git master --quiet
 
 branches:
   only:

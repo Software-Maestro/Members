@@ -1,6 +1,6 @@
 env:
   global:
-    - secure: M7HJl8DNMKDp1OURap4Qfxsbgz0zyOt1tT7KKAjkGQgiQP/QlynVeE3h9Ek5N8EIsS8hFoycqKKKfAL3xw4PBACEwVAMIuAap+l4SFAZxkxBrrTpx65UwbOSh1MpzkhAko4bM/dyrDbdNl2Lnz5vEpOLXHXGu8PFSNVVqauV9l0=
+    - secure: hXwhJvtXk9ouSE4YGB9Hy0LicPvXAhDrpb4H0+l/T6DL2jqZXujxvucPfgbhbQ8/qwGn6wsQt7LvYKF1eTA5pEIGPJTeJBY/DhE/38O6tj9kA3/xuQLPrZBVCCB3P+R9iGEc1R6AQQ4Mbiz/Nt0dzThIyo65r+JfFVacYdqhKZc=
 
 before_script:
   - git config --global user.email "jaeyoung@monodiary.net"

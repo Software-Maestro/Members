@@ -1,13 +1,8 @@
-language: python
-
-python:
-- '2.7'
-
 env:
   global:
     - secure: M7HJl8DNMKDp1OURap4Qfxsbgz0zyOt1tT7KKAjkGQgiQP/QlynVeE3h9Ek5N8EIsS8hFoycqKKKfAL3xw4PBACEwVAMIuAap+l4SFAZxkxBrrTpx65UwbOSh1MpzkhAko4bM/dyrDbdNl2Lnz5vEpOLXHXGu8PFSNVVqauV9l0=
 
-before_install:
+before_script:
   - git config --global user.email "jaeyoung@monodiary.net"
   - git config --global user.name "Travis"
 

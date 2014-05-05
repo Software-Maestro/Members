@@ -1,0 +1,24 @@
+language: python
+
+python:
+- '2.7'
+
+env:
+  global:
+    - secure: M7HJl8DNMKDp1OURap4Qfxsbgz0zyOt1tT7KKAjkGQgiQP/QlynVeE3h9Ek5N8EIsS8hFoycqKKKfAL3xw4PBACEwVAMIuAap+l4SFAZxkxBrrTpx65UwbOSh1MpzkhAko4bM/dyrDbdNl2Lnz5vEpOLXHXGu8PFSNVVqauV9l0=
+
+before_install:
+  - git config --global user.email "jaeyoung@monodiary.net"
+  - git config --global user.name "Travis"
+
+script:
+  - git clone --depth 5 --quiet https://${GH_TOKEN}@github.com/Software-Maestro/__site_creator.git creator
+
+after_success:
+  - cd creator
+  - git commit -m "Renew site contents" --allow-empty
+  - git push https://${GH_TOKEN}@github.com/Software-Maestro/__site_creator.git master --quiet
+
+branches:
+  only:
+    - master

@@ -13,6 +13,10 @@
     <lbael> Birth: <input name="birth" type="date"> </label><br>
     <label> E-Mail: <input name="email" type="email" placeholder="gildong@example.com"> </label>
     <label> hash it: <input name="hash-email" type="checkbox"> </label><br>
+    <button id="profile-image" type="button">
+        check gravatar profile
+        <img src="" width="50" height="50">
+    </button><br>
     <span>Gender:</span>
         <label> Male <input name="gender" type="radio" value="male"> </label>
         <label> Female <input name="gender" type="radio" value="female"> </label>
@@ -60,6 +64,10 @@
             github: $('input[name="github"]').val()
         };
         $('#result').text(ini(data));
+    });
+    $('#profile-image').click(function () {
+        var email = $('input[name="email"]').val();
+        $('img', this).attr('src', 'http://www.gravatar.com/avatar/' + md5(email) + '?s=50');
     });
     $.each(['twitter', 'facebook', 'github'], function (index, sns) {
         $('#' + sns + ' button').click(function () {

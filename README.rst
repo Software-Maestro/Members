@@ -11,7 +11,7 @@ Mentee:
 
 Mentee.cfg generator by `@disjukr`_:
 
-.. _@disjukr: http://twitter.com/disjukr
+.. _@disjukr: https://github.com/disjukr
 
     `Mentee configuration file generator`_
     

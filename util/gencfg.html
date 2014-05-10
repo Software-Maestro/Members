@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> SWMaestro:: Mentee Data Generator </title>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script src="./md5.min.js"></script>
+</head>
+<body>
+    <h1> Mentee Data Generator </h1>
+    <hr>
+    <h2> Basic Information </h2>
+    <label> Name: <input name="name" placeholder="Gildong Hong"> </label><br>
+    <lbael> Birth: <input name="birth" type="date"> </label><br>
+    <label> E-Mail: <input name="email" type="email" placeholder="gildong@example.com"> </label>
+    <label> hash it: <input name="hash-email" type="checkbox"> </label><br>
+    <span>Gender:</span>
+        <label> Male <input name="gender" type="radio" value="male"> </label>
+        <label> Female <input name="gender" type="radio" value="female"> </label>
+    <br>
+    <h2> Social Network Account </h2>
+    <label id="twitter">
+        Twitter: <input name="twitter" placeholder="write your account">
+        <button type="button"> check </button>
+    </label><br>
+    <label id="facebook">
+        Facebook: <input name="facebook" placeholder="write your facebook address">
+        <button type="button"> check </button>
+    </label><br>
+    <label id="github">
+        GitHub: <input name="github" placeholder="write your account">
+        <button type="button"> check </button>
+    </label><br>
+    <h2> Result </h2>
+    <textarea id="result" cols="50" rows="20"></textarea>
+    <script>
+    function ini(data) {
+        return $.map(data, function (group, groupName) {
+            var groupData = [['[', groupName, ']'].join('')];
+            $.each(group, function (key, value) {
+                if (value != null && value !== '')
+                    groupData.push([key, '=', value].join(' '));
+            });
+            return groupData.join('\n');
+        }).join('\n\n');
+    }
+    $('input').on('keypress keyup change', function () {
+        var data = {};
+        var email = $('input[name="email"]').val();
+        var doHash = $('input[name="hash-email"]').is(':checked');
+        data.info = {
+            name: $('input[name="name"]').val(),
+            birth: $('input[name="birth"]').val().replace(/-/g, '.'),
+            email: doHash ? '' : email,
+            hashed_email: doHash ? md5(email) : '',
+            sex: $('input[name="gender"]:checked').val()
+        };
+        data.social = {
+            twitter: $('input[name="twitter"]').val(),
+            facebook: $('input[name="facebook"]').val(),
+            github: $('input[name="github"]').val()
+        };
+        $('#result').text(ini(data));
+    });
+    $.each(['twitter', 'facebook', 'github'], function (index, sns) {
+        $('#' + sns + ' button').click(function () {
+            window.open(['https://', sns, '.com/', $('input[name="' + sns + '"]').val()].join(''));
+        });
+    });
+    </script>
+</body>
+</html>
